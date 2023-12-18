@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 def index(request):
     print('Request for index page received')
@@ -20,3 +22,8 @@ def hello(request):
             return render(request, 'hello_azure/hello.html', context)
     else:
         return redirect('index')
+
+class HelloView(APIView):
+    def get(self, request):
+        name = request.GET.get('name', 'World')
+        return Response({"name": name})

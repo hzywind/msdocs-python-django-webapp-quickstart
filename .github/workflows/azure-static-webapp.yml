@@ -17,7 +17,7 @@ on:
     branches: [ "main" ]
     paths:
       - static/**
-      - .github/workflows/azure-static-webapps.yml
+      - .github/workflows/azure-static-webapp.yml
 
 permissions:
   contents: read
